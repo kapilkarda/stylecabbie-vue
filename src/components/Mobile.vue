@@ -22,6 +22,15 @@
 								<Slider v-model="fontSize" />
 							</span>
 							<span class="p-field">
+								<label for="text">Text Align</label>
+								<span class="p-buttonset">
+										<Button label="" icon="pi pi-align-left" @click="alignText('left')" />
+										<Button label="" icon="pi pi-align-center" @click="alignText('center')" />
+										<Button label="" icon="pi pi-align-right" @click="alignText('right')" />
+										<Button label="" icon="pi pi-align-justify" @click="alignText('justify')" />
+								</span>
+							</span>
+							<span class="p-field">
 								<label for="text">Color</label>
 								<input type="color" v-model="fontColor"   />
 							</span>
@@ -44,6 +53,7 @@
 							<h4 class="widget-title">UPLOAD ART</h4>
 							<input type="file" @change="myImage($event)">
 							<img :src="setImage" width="100px" />
+							<Button v-if="setImage" label="" icon="pi pi-times" class="p-button-rounded p-button-danger rmImg" @click="remImg" />
 						</div>
 					</TabPanel>
 				</TabView>
@@ -70,17 +80,20 @@
 								@dragend="handleDragEnd" />
 								
 								<v-text ref="text" :config="{
-									x: 100,
+									x: 50,
 									y: 200,
 									rotation: 0,
 									scaleX: 1,
 									scaleY: 1,
+									wrap: 'word',
+									width:200,
 									fontFamily: fontFamily,
 									fontSize: fontSize,
 									text: textData,
 									fill: fontColor,
 									shadowEnabled: outline,
 									shadowColor:outlineColor,
+									align:align,
 									shadowOffset:{x:1,y:1},
 									draggable: true,
 									name:'txt',
@@ -103,6 +116,8 @@
 	</div>
 </template>
 <script>
+
+import './Mobile.scss';
 import m_texture from  './../m_texture.png';
 const width = window.innerWidth;
 const height = window.innerHeight;
@@ -117,6 +132,7 @@ export default {
 			outline:false,
 			outlineColor:'#ffffff',
 			printImage:null,
+			align:'left',
 			stageSize: {
         width: width,
         height: height
@@ -209,6 +225,8 @@ export default {
 			this.fontFamily = e.family;
 		},
 		myImage: function(e){
+			this.setImage = null;
+			this.printImage = null;
 			const printimage = new window.Image();
 			this.setImage = URL.createObjectURL(e.target.files[0]);
 			printimage.src = URL.createObjectURL(e.target.files[0]);
@@ -227,7 +245,14 @@ export default {
 		},
 		colorPick: function(e){
 			console.log(e)
-		}
+		},
+		alignText: function(e){
+			this.align = e;
+		},
+		remImg:function(){
+			this.printImage = null;
+			this.setImage = null;
+		},
   },
 	created() {
     const image = new window.Image();
