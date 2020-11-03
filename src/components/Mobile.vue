@@ -58,7 +58,7 @@
 					</TabPanel>
 				</TabView>
 			</div>
-			<div class="p-col canvasContainer">
+			<div class="p-col canvasContainerMobile">
 				<v-stage 	@mousedown="handleStageMouseDown" @touchstart="handleStageMouseDown"
 									ref="stage" :config="stageSize">
 					<v-layer ref="layer">

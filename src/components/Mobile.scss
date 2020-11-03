@@ -1,6 +1,10 @@
-.canvasContainer{
-  width:265px;height:550px;float:'left'
+.canvasContainerMobile{
+  width:265px;height:550px;float:left
 }
-.canvasContainer > div{
+.canvasContainerMobile > div{
   width:300px;height:550px; overflow: hidden;
+}
+.canvasContainerMobile .konvajs-content {
+	height: 550px !important;
+	width:265px !important;
 }
