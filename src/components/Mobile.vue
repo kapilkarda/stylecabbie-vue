@@ -265,13 +265,3 @@ export default {
 }
 </script>
 
-
-<style>
-
-.canvasContainer{
-  width:'265px';height:'550px';float:'left'
-}
-.canvasContainer > div{
-  width:265px;height:550px; overflow: hidden;
-}
-</style>
