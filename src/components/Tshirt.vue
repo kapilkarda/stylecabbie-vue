@@ -11,6 +11,9 @@
                 Selected Colors
               </h4>
               <div class="c-color-swatch">
+								<input type="radio" name="color" id="white"  value="white" @click="setBgColor('#FFFFFF')" />
+                <label for="white" style="outline:1px solid gray"><span class="white"></span></label>
+
                 <input type="radio" name="color" id="red" value="red" @click="setBgColor('#DB2828')" />
                 <label for="red"><span class="red"></span></label>
                 
@@ -40,6 +43,9 @@
                 
                 <input type="radio" name="color" id="pink" @click="setBgColor('#E03997')"  />
                 <label for="pink"><span class="pink"></span></label>
+                
+                <input type="radio" name="color" id="black" @click="setBgColor('#000000')"  />
+                <label for="black"><span class="black"></span></label>
               </div>
           </TabPanel>
 					<TabPanel header="Text">
@@ -49,7 +55,7 @@
 							</h4>
 							<span class="p-field">
 								<label for="text">Type here</label>
-								<InputText id="text" type="text" v-model="textDataB" />
+								<InputText id="text" type="text" v-model="textDataB" maxlength="60" />
 							</span>
 							<span class="p-field">
 								<label for="text">Text Size</label>
@@ -88,7 +94,7 @@
 							</h4>
 							<span class="p-field">
 								<label for="text">Type here</label>
-								<InputText id="text" type="text" v-model="textData" />
+								<InputText id="text" type="text" v-model="textData" maxlength="60" />
 							</span>
 							<span class="p-field">
 								<label for="text">Text Size</label>

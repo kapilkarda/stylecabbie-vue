@@ -14,6 +14,7 @@
   width:500px;height:500px; overflow: hidden;
 }
 $colors: (
+  white: #FFFFFF,
   red: #DB2828,
   orange: #F2711C,
   yellow: #FBBD08,
@@ -23,7 +24,8 @@ $colors: (
   blue: #2185D0,
   violet: #6435C9,
   purple: #A333C8,
-  pink: #E03997
+  pink: #E03997,
+  black:#000000,
 );
 
 * {
